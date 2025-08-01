@@ -1,7 +1,7 @@
 const db = require('../config/dbConfig');
 
 exports.getAllUsers = async () => {
-    const [users] = await db.query('SELECT * FROM Register');
+    const [users] = await db.query('SELECT * FROM register');
     return users;
 };
 

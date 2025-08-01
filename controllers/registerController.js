@@ -5,8 +5,12 @@ exports.getAllUsers = async (req, res) => {
     try {
         const users = await RegisterModel.getAllUsers();
         res.json(users);
-    } catch {
-        res.status(500).json({ error: "facing error to fetch registered users data" });
+    } catch (error) {
+        console.error('Error in getAllUsers:', error);
+        res.status(500).json({
+            error: "facing error to fetch registered users data1",
+            details: error.message // Send error message in response
+        });
     }
 }
 
